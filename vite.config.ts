@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
+  base: '/ecs-pacman-ai/',
   root: '.',
   publicDir: 'public',
   resolve: {
