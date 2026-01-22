@@ -35,7 +35,7 @@ import {
   PELLET_POSITIONS,
 } from '../data/originalMaze';
 import type { GhostType, EntityId } from '../types';
-import { SCATTER_DURATION, CHASE_DURATION, RESPAWN_DELAY, TILE_SIZE } from '../utils/constants';
+import { SCATTER_DURATION, CHASE_DURATION, RESPAWN_DELAY, TILE_SIZE, PLAYER_SPEED, GHOST_SPEED } from '../utils/constants';
 import { GameEvents } from '../types';
 import { getPlayerEntity } from '../selectors';
 
@@ -129,10 +129,10 @@ export function createGameController(): GameController {
         pixelX: PACMAN_START.x * TILE_SIZE + TILE_SIZE / 2,
         pixelY: PACMAN_START.y * TILE_SIZE + TILE_SIZE / 2,
       });
-      // Reset velocity
+      // Reset velocity (keep speed so player can move after respawn)
       world.entities.addComponent(playerId, 'velocity', {
         direction: null,
-        speed: 0,
+        speed: PLAYER_SPEED,
         nextDirection: null,
       });
     }
@@ -149,10 +149,10 @@ export function createGameController(): GameController {
           pixelX: pos.x * TILE_SIZE + TILE_SIZE / 2,
           pixelY: pos.y * TILE_SIZE + TILE_SIZE / 2,
         });
-        // Reset ghost velocity
+        // Reset ghost velocity (keep speed so ghosts can move after respawn)
         world.entities.addComponent(ghostId, 'velocity', {
           direction: null,
-          speed: 0,
+          speed: GHOST_SPEED,
           nextDirection: null,
         });
         // Reset ghost AI mode to scatter and remove vulnerability
