@@ -1,0 +1,138 @@
+/* Game layout styles */
+* {
+  box-sizing: border-box;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #000;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  color: #fff;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 560px;
+  padding: 10px 0;
+}
+
+.game-board {
+  position: relative;
+  background-color: #000;
+}
+
+.game-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+}
+
+.game-message {
+  font-size: 24px;
+  text-transform: uppercase;
+  animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ScoreBoard styles */
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 560px;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 12px;
+}
+
+.scoreboard__score,
+.scoreboard__highscore,
+.scoreboard__level {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.scoreboard__score-label,
+.scoreboard__highscore-label,
+.scoreboard__level-label {
+  font-size: 10px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.scoreboard__score-value,
+.scoreboard__highscore-value,
+.scoreboard__level-value {
+  font-size: 14px;
+  color: #fff;
+}
+
+.scoreboard__lives {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.scoreboard__life {
+  width: 0;
+  height: 0;
+  border: 8px solid #ffff00;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+/* GameLayout styles */
+.game-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000;
+  padding: 10px;
+}
+
+.game-layout__maze-container {
+  position: relative;
+}
+
+.game-layout__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+}
+
+.game-layout__message {
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 16px;
+  color: #ffff00;
+  text-transform: uppercase;
+  animation: blink 0.5s infinite;
+}

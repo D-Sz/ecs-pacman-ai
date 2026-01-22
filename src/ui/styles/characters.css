@@ -1,0 +1,194 @@
+/* Character styles - Pacman and Ghosts */
+
+/* Pacman base - using border trick for perfect circle with wedge mouth */
+.pacman {
+  width: 0;
+  height: 0;
+  border: 10px solid #ffff00;
+  border-right-color: transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Pacman mouth animation */
+.pacman--eating {
+  animation: chomp 0.15s ease-in-out infinite;
+}
+
+@keyframes chomp {
+  0%, 100% {
+    /* Mouth wide open */
+    border-right-color: transparent;
+  }
+  50% {
+    /* Mouth closed */
+    border-right-color: #ffff00;
+  }
+}
+
+/* Pacman direction rotations */
+.pacman--right { transform: translate(-50%, -50%) rotate(0deg); }
+.pacman--down { transform: translate(-50%, -50%) rotate(90deg); }
+.pacman--left { transform: translate(-50%, -50%) rotate(180deg); }
+.pacman--up { transform: translate(-50%, -50%) rotate(-90deg); }
+
+/* Ghost base */
+.ghost {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ghost__body {
+  width: 20px;
+  height: 16px;
+  border-radius: 10px 10px 0 0;
+  position: relative;
+}
+
+.ghost__skirt {
+  width: 20px;
+  height: 4px;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+}
+
+.ghost__skirt-wave {
+  width: 6.67px;
+  height: 4px;
+  border-radius: 0 0 50% 50%;
+}
+
+/* Ghost colors */
+.ghost--blinky .ghost__body,
+.ghost--blinky .ghost__skirt-wave { background-color: #ff0000; }
+
+.ghost--pinky .ghost__body,
+.ghost--pinky .ghost__skirt-wave { background-color: #ffb8ff; }
+
+.ghost--inky .ghost__body,
+.ghost--inky .ghost__skirt-wave { background-color: #00ffff; }
+
+.ghost--clyde .ghost__body,
+.ghost--clyde .ghost__skirt-wave { background-color: #ffb852; }
+
+/* Ghost eyes */
+.ghost__eyes {
+  display: flex;
+  gap: 4px;
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ghost__eye {
+  width: 5px;
+  height: 6px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: relative;
+}
+
+.ghost__pupil {
+  width: 3px;
+  height: 3px;
+  background-color: #00f;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 1px;
+  left: 1px;
+}
+
+/* Pupil directions */
+.ghost--look-right .ghost__pupil { left: 2px; }
+.ghost--look-left .ghost__pupil { left: 0; }
+.ghost--look-up .ghost__pupil { bottom: 3px; left: 1px; }
+.ghost--look-down .ghost__pupil { bottom: 0; left: 1px; }
+
+/* Frightened ghost */
+.ghost--frightened .ghost__body,
+.ghost--frightened .ghost__skirt-wave {
+  background-color: #2121de;
+}
+
+.ghost--frightened .ghost__eye {
+  width: 4px;
+  height: 4px;
+  background-color: #fff;
+}
+
+.ghost--frightened .ghost__pupil {
+  display: none;
+}
+
+/* Flashing ghost (power ending) */
+.ghost--flashing {
+  animation: ghost-flash 0.2s linear infinite;
+}
+
+@keyframes ghost-flash {
+  0%, 50% { filter: brightness(1); }
+  51%, 100% { filter: brightness(2); }
+}
+
+/* Eyes only (returning to ghost house) */
+.ghost--eyes-only .ghost__body,
+.ghost--eyes-only .ghost__skirt-wave {
+  background-color: transparent;
+}
+
+/* Pellet */
+.pellet {
+  background-color: #ffb897;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Pellet sizes */
+.pellet--small {
+  width: 4px;
+  height: 4px;
+}
+
+.pellet--medium {
+  width: 6px;
+  height: 6px;
+}
+
+.pellet--large {
+  width: 8px;
+  height: 8px;
+}
+
+/* Power pellet */
+.power-pellet {
+  width: 10px;
+  height: 10px;
+  background-color: #ffb897;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Animated power pellet (pulsing effect) */
+.power-pellet--animated {
+  animation: pulse 0.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { transform: translate(-50%, -50%) scale(0.6); opacity: 0.6; }
+}

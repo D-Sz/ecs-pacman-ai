@@ -1,0 +1,69 @@
+/* Maze styles */
+.maze {
+  display: grid;
+  gap: 0;
+  background-color: #000;
+}
+
+.maze-cell {
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+/* Wall styles */
+.maze-cell--wall {
+  background-color: #00f;
+  border: 2px solid #00f;
+  border-radius: 4px;
+}
+
+/* Path styles */
+.maze-cell--path {
+  background-color: #000;
+}
+
+/* Tunnel styles */
+.maze-cell--tunnel {
+  background-color: #000;
+}
+
+/* Ghost house styles */
+.maze-cell--ghost-house {
+  background-color: #000;
+}
+
+.maze-cell--ghost-door {
+  background-color: #000;
+  position: relative;
+}
+
+/* Ghost door gate - pink horizontal bar at the bottom of the cell
+   (bottom of row 12 = top of ghost house entrance) */
+.maze-cell--ghost-door::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background-color: #ffb8de;
+  border-radius: 2px;
+  box-shadow: 0 0 4px #ffb8de;
+}
+
+/* MazeLayout styles */
+.maze-layout {
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+}
+
+.maze-layout__row {
+  display: flex;
+}
+
+.maze-layout .maze-cell {
+  width: var(--cell-size, 20px);
+  height: var(--cell-size, 20px);
+}

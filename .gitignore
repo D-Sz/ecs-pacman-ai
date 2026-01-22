@@ -1,0 +1,32 @@
+# Claude Code settings
+.claude/
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+storybook-static/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Cache
+.cache/
+.eslintcache
