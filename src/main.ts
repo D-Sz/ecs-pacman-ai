@@ -7,6 +7,10 @@
  * - KeyboardHandler (input handling)
  */
 
+import './ui/styles/game.css';
+import './ui/styles/maze.css';
+import './ui/styles/characters.css';
+
 import { createGameController } from './logic/GameController';
 import { createGameView } from './ui/GameView';
 import { createKeyboardHandler } from './ui/KeyboardHandler';
