@@ -2,6 +2,8 @@
 
 A classic Pacman game built with TypeScript using Entity Component System (ECS) architecture.
 
+v0.9.9
+
 ## Features
 
 - Classic Pacman gameplay with ghosts, pellets, and power-ups
